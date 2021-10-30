@@ -14,7 +14,7 @@ The Back-end side is written in **Python**, using the **Flask** framework.
 
 All the data is stored in **SQLite** databases:
 
-- A database storing all users, with their username, their master passwoerd hash and their account settings.
+- A database storing all users, with their username, their master password hash and their account settings.
 - For each user, a database is created to store his/her personnal data. All the sensitive information is encrypted on-the-fly with [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) prior to be inserted to the database.
 
 The Front-end side uses some **JavaScript**:
