@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Entry
+{% endblock %}
+
+{% block main %}
+    <h4>Add Entry</h4>
+    <form id="add-entry" action="/add" method="post">
+        <fieldset id="new-entry-data">
+            <legend>Entry Data</legend>
+            <input type="text" name="title" required="required" placeholder="Title">
+            <input type="text" name="url" placeholder="URL">
+            <input type="text" name="login" placeholder="login">
+            <input type="hidden" name="pw-length" value="{{ pwdSettings.pwlength }}">
+            <input type="hidden" name="use-digits" value="{{ pwdSettings.usedigits }}">
+            <input type="hidden" name="use-lower" value="{{ pwdSettings.uselower }}">
+            <input type="hidden" name="use-upper" value="{{ pwdSettings.useupper }}">
+            <input type="hidden" name="use-symbols" value="{{ pwdSettings.usesymbols }}">
+            <div id="new-entry-pw">
+                <input type="password" name="password" placeholder="password">
+                <button name="toggle" class="action-btn hide-btn"></button>
+                <button type="button" class="generate-btn" id="generate">&#8634;</button>
+            </div>
+            <div id="pw-strength">
+                Strength: <span id="strength"></span>
+            </div>
+            <textarea name="note" placeholder="Note" rows="10"></textarea>
+        </fieldset>
+        <fieldset id="new-entry-folder">
+            <legend>Folder</legend>
+            {% if folders %}
+                <select name="folder">
+                    <option disabled selected>-- Select Folder</option>
+                    {% for folder in folders %}
+                        <option value="{{ folder.name }}">{{ folder.name }}</option>
+                    {% endfor %}
+                </select>
+            {% else %}
+                <p>-- No folders yet</p>
+            {% endif %}
+            <input type="text" name="new-folder" placeholder="New Folder" value="Default">
+        </fieldset>
+        <div class="actions-buttons">
+            <button type="submit" class="confirm-btn">Add</button>
+            <button class="cancel-btn"><a href="/">Cancel</a></button>
+        </div>
+    </form>
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript" src="static/js/pwgen.js"></script>
+{% endblock %}

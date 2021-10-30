@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    {% if data %}
+        <div id="summary">
+            <h4>Summary</h4>
+            {% if duplicates or weak %}
+                {% if duplicates %}
+                    <p>&#9937; You have {{ duplicates|length }} duplicate passwords</p>
+                {% endif %}
+                {% if weak %}
+                    <p>&#9937; You have {{ weak|length }} weak passwords</p>
+                {% endif %}
+            {% else %}
+                <p>&#9989; Nothing to report</p>
+            {% endif %}
+        </div>
+
+        <form id="select-folder" action="/" method="get">
+            <select name="folder">
+                <option disabled selected>-- Select Folder</option>
+                <option value="*">All ({{ row_count }})</option>
+                {% for folder in folders %}
+                    <option value="{{ folder.name }}">{{ folder.name }} ({{ folder.count }})</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="select-btn">Select</button>
+        </form>
+
+        <button class="add-btn"><a href="/add">+</a></button>
+
+        <table id="list-entries">
+            <thead>
+                <th>Title</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                {% for entry in data %}
+                    <tr>
+                        <td>
+                            {% if entry.password %}
+                                {% if entry.id in duplicates|map(attribute='id') or entry.id in weak|map(attribute='id') %}
+                                    <span class="red"><a href="/view?id={{ entry.id }}">{{ entry.title }}</a></span>
+                                    <span class="warning red">&#9888;</span>
+                                {%else %}
+                                    <a href="/view?id={{ entry.id }}">{{ entry.title }}</a>
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        <td class="actions">
+                            <form action="/edit" method="get">
+                                <input name="id" type="hidden" value="{{ entry.id }}">
+                                <button type="submit" class="edit"></button>
+                            </form>
+                            <form action="/delete" method="get">
+                                <input name="id" type="hidden" value="{{ entry.id }}">
+                                <button type="submit" class="trash"></button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No data yet</p>
+        <button class="add-btn"><a href="/add">+</a></button>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Account Settings
+{% endblock %}
+
+{% block main %}
+    <h1>Account Settings for {{ session.username }}</h1>
+    {% if message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
+    <form id="edit-account" action="/account" method="post">
+        <fieldset id="current-pw">
+            <legend>Current password</legend>
+            <input type="password" autocomplete="off" name="current-password" placeholder="Current Password">
+        </fieldset>
+        <fieldset id="update-pw">
+            <legend>Change Master Password</legend>
+            <input type="password" autocomplete="off" name="new-password" placeholder="New Password">
+            <input type="password" autocomplete="off" name="confirmation" placeholder="Confirm Password">
+            <button type="submit" class="confirm-btn" name="action" value="update-password">Update Password</button>
+        </fieldset>
+        <fieldset id="pw-settings">
+            <legend>Password Generator Settings</legend>
+            <div class="setting-container">
+                <label>Length</label>
+                <input type="number" name="pw-length" min="8" max="95" value="{{ user.pwlength }}">
+            </div>
+            <div class="setting-container">
+                <input type="checkbox" name="use-digits" {% if user.usedigits %} checked {% endif %}>
+                <label>Use digits </label>
+            </div>
+            <div class="setting-container">
+                <input type="checkbox" name="use-lower" {% if user.uselower %} checked {% endif %}>
+                <label>Use lowercase letters </label>
+            </div>
+            <div class="setting-container">
+                <input type="checkbox" name="use-upper" {% if user.useupper %} checked {% endif %}>
+                <label>Use uppercase letters </label>
+            </div>
+            <div class="setting-container">
+                <input type="checkbox" name="use-symbols" {% if user.usesymbols %} checked {% endif %}>
+                <label>Use symbols </label>
+            </div>
+            <button type="submit" class="confirm-btn" name="action" value="update-pw-settings">Update Settings</button>
+        </fieldset>
+        <fieldset id="delete-account">
+            <legend>Danger Zone</legend>
+            <button type="submit" class="delete-btn" name="action" value="delete">Delete Account</button>
+        </fieldset>
+    </form>
+    <div class="actions-buttons">
+        <button class="cancel-btn"><a href="/">Cancel</a></button>
+    </div>
+{% endblock %}

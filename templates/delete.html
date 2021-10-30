@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Delete Entry
+{% endblock %}
+
+{% block main %}
+    <form id="delete-entry" action="/delete" method="post">
+        <span>Are you sure you want to delete entry <strong>{{ entry.title }}</strong> ?</span>
+        <input type="hidden" name="id" value="{{ entry.id }}">
+        <div class="actions-buttons">
+            <button type="submit" class="delete-btn">Delete</button>
+            <button class="cancel-btn"><a href="/">Cancel</a></button>
+        </div>
+    </form>
+{% endblock %}

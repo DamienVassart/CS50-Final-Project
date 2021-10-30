@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    View Entry
+{% endblock %}
+
+{% block main %}
+    <div id="view">
+        <h4>{{ entry.title }}</h4>
+        <span class="field-label">URL</span>
+        <div class="field-container">
+            <span>{{ entry.url }}</span>
+            <button name="visit-link" class="action-btn visit-btn"><a href="{{ entry.url }}" target="_blank"><img src="../static/img/visit.png"></a></button>
+        </div>
+        <span class="field-label">Login</span>
+        <div class="field-container">
+            <input type="hidden" name="login-value" value="{{ entry.login }}">
+            <span id="login-field">{{ entry.login }}</span>
+            <button name="copy-login" class="action-btn copy-btn"></button>
+            <span id="login-copied"></span>
+        </div>
+        <span class="field-label">Password</span>
+        <div class="field-container">
+            <input type="hidden" name="pw-value" value="{{ entry.password }}">
+            <span id="pw-field" class="hide"></span>
+            <div class="pw-buttons">
+                <button name="toggle" class="action-btn hide-btn"></button>
+                <button name="copy-pw" class="action-btn copy-btn"></button>
+            </div>
+            <span id="pw-copied"></span>
+        </div>
+        <span class="field-label">Note</span>
+        <div class="field-container">
+            <span>{{ entry.note }}</span>
+        </div>
+    </div>
+    <div class="actions-buttons">
+        <button class="edit-btn"><a href="/edit?id={{ entry.id }}">Edit</a></button>
+        <button class="back-btn"><a href="/">Back</a></button>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript" src="static/js/pwutils.js"></script>
+{% endblock %}

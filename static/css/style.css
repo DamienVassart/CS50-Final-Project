@@ -1,0 +1,689 @@
+/* ============================================================
+
+Imported Fonts
+
+============================================================ */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+
+/* ============================================================
+
+Global Rules
+
+============================================================ */
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: sans-serif;
+}
+
+body {
+    height: 100%;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h4, button {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.3rem;
+}
+
+.message {
+    font-weight: 800;
+    color: darkred;
+}
+
+/* ============================================================
+
+Forms & Buttons
+
+============================================================ */
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+}
+
+legend {
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 4px 20px;
+    font-family: monospace;
+    font-weight: bold;
+    background-color: #f2f2f2;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+input {
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 0;
+    padding: 4px;
+}
+
+input:focus {
+    padding: 8px 4px;
+    outline: none;
+    border: 1px solid hsla(0, 0%, 70%, .4);
+    box-shadow: 0 0 10px hsla(0, 0%, 80%, .5);
+}
+
+select:focus, textarea:focus {
+    outline: none;
+}
+
+button {
+    border-radius: 5px;
+}
+
+.actions-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.actions-buttons button {
+    padding: 5px;
+    margin: 0 5px;
+    text-transform: uppercase;
+    border: none;
+}
+
+.confirm-btn, .delete-btn, .edit-btn {
+    color: white;
+}
+
+.confirm-btn, .edit-btn {
+    background-color: darkgreen;
+}
+
+.delete-btn {
+    background-color: darkred;
+}
+
+.back-btn, .cancel-btn {
+    color: dimgrey;
+    background-color: lightgrey;
+}
+
+.generate-btn {
+    border: none;
+    background-color: transparent;
+    font-size: xx-large;
+}
+
+
+/* ============================================================
+
+Menu
+
+============================================================ */
+
+
+nav {
+    align-self: flex-end;
+    margin-right: 10px;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    list-style: none;
+}
+
+nav li {
+    font-size: 1rem;
+}
+
+.menu-item {
+    padding: 5px;
+}
+
+.menu-item:first-of-type {
+    margin-right: 10px;
+}
+
+#login-item {
+    color: white;
+    background-color: midnightblue;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 576px) {
+    .menu-item {
+        font-size: .8rem;
+    }
+}
+
+#settings-item:before {
+    background-image: url('../img/settings.png');
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 3px;
+    content: "";
+}
+
+#logout-item:before {
+    background-image: url('../img/logout.png');
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 3px;
+    content: "";
+}
+
+main {
+    position: relative;
+    top: 30px;
+    margin: 0 auto;
+}
+
+
+/* ============================================================
+
+Login, Register, Add Entry, Account (Common Rules)
+
+============================================================ */
+
+
+#login-form input, #register-form input, #add-entry input, #edit-account input {
+    margin-bottom: 10px;
+}
+
+#login-form input:focus, #register-form input:focus, #add-entry input:focus, #edit-account input:focus {
+    margin: 0 0 2px 0;
+    padding: 8px 4px;
+}
+
+#login-form button, #register-form button {
+    padding: 4px 0;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+}
+
+#login-form button {
+    background-color: midnightblue;
+}
+
+#register-form button {
+    background-color: darkgreen;
+}
+
+#login-form button:active, #register-form button:active {
+    background-color: grey;
+}
+
+
+/* ============================================================
+
+Account
+
+============================================================ */
+
+#edit-account {
+    width: 90%;
+    max-width: 480px;
+}
+
+#edit-account fieldset {
+    padding-top: 10px;
+}
+
+#edit-account button {
+    padding: 5px;
+    text-transform: uppercase;
+    border: none;
+}
+
+#edit-account button:nth-child(2) {
+    align-self: center;
+}
+
+#pw-settings input, #pw-settings input:focus {
+    margin: 8px 0;
+    padding: 4px;
+}
+
+#pw-settings div:nth-child(6) {
+    margin-bottom: 10px;
+}
+
+#delete-account {
+    background-color: #ffcccc;
+}
+
+#delete-account legend {
+    padding: 4px 8px;
+    color: darkred;
+    background-color: white;
+    border: 1px solid darkred;
+}
+
+/* ============================================================
+
+Error
+
+============================================================ */
+
+
+#error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 640px;
+    margin-top: 30px;
+    background-color: #ffcccc;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px hsla(0, 0%, 70%, .2);
+}
+
+#error h4 {
+    font-size: 1rem;
+    color: darkred
+}
+
+#error p {
+    word-wrap: break-word;
+}
+
+.error-message {
+    font-size: 1rem;
+    width: 90%;
+}
+
+
+/* ============================================================
+
+Login & register
+
+============================================================ */
+
+
+#login-form input, #login-form button, #register-form input, #register-form button {
+    width: 270px;
+}
+
+#login, #login-form, #register, #register-form {
+    align-items: center;
+}
+
+#login, #register {
+    height: auto;
+    text-align: center;
+}
+
+#login h1, #register h1 {
+    font-size: 1.5rem;
+}
+
+
+/* ============================================================
+
+Index
+
+============================================================ */
+
+#summary {
+    padding: 0 20px 10px 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#summary h4 {
+    text-decoration: underline;
+}
+
+#summary p {
+    font-size: .9rem;
+}
+
+#select-folder, #list-entries {
+    margin: 20px 0;
+}
+
+#select-folder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 180px;
+}
+
+.select-btn {
+    border: none;
+    padding: 5px 10px;
+}
+
+.add-btn {
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 1px 8px;
+    border: none;
+    color: white;
+    background-color: dodgerblue;
+}
+
+.add-btn:hover {
+    background-color: deepskyblue;
+}
+
+#list-entries {
+    width: 60%;
+    min-width: 300px;
+    max-width: 640px;
+}
+
+#list-entries th, #list-entries td {
+    margin: 0;
+    padding: 6px 0 6px 10px;
+    text-align: left;
+    border-bottom: 1px solid lightgrey;
+}
+
+#list-entries th:last-child, #list-entries td:last-child {
+    width: 100px;
+}
+
+#list-entries tbody tr:last-child td {
+    border-bottom: none;
+}
+
+#list-entries th {
+    background-color: #f2f2f2;
+}
+
+#list-entries th:first-child {
+    border-radius: 10px 0 0 0;
+}
+
+#list-entries th:last-child {
+    border-radius: 0 10px 0 0;
+}
+
+#list-entries td {
+    font-size: .9rem;
+}
+
+.red {
+    color: darkred;
+}
+
+.warning {
+    font-size: .8rem;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.actions form:first-child {
+    margin-right: 10px;
+}
+
+.actions button {
+    border: none;
+    background-color: transparent;
+}
+
+.edit, .trash {
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.edit {
+    background-image: url('../img/edit.png');
+}
+
+.trash {
+    background-image: url('../img/delete.png');
+}
+
+/* ============================================================
+
+View
+
+============================================================ */
+
+
+#view {
+    width: 80%;
+    max-width: 320px;
+    margin: 20px 0;
+    padding: 0 20px 20px 20px;
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px hsla(0, 0%, 90%, .5);
+}
+
+#view h4 {
+    text-align: center;
+}
+
+.field-label {
+    color: grey;
+    font-family: monospace;
+}
+
+
+.field-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted lightgrey;
+}
+
+.field-container:last-child {
+    border: none;
+    padding: 0;
+}
+
+.field-container span {
+    margin-right: 20px;
+}
+
+.action-btn {
+    border: none;
+    background-color: transparent;
+}
+
+.visit-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.copy-btn, .hide-btn, .show-btn {
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.copy-btn {
+    background-image: url('../img/copy.png');
+}
+
+.hide-btn {
+    background-image: url('../img/show.png');
+}
+
+.show-btn {
+    background-image: url('../img/hide.png');
+}
+
+.copied {
+    margin-left: 10px;
+    font-size: .8rem;
+    font-family: monospace;
+    text-transform: uppercase;
+    color: grey;
+    background-color: lightgrey;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+
+/* ============================================================
+
+Add & Edit
+
+============================================================ */
+
+
+#new-entry-data, #new-entry-folder, #edit-entry-data, #edit-entry-folder {
+    width: 90%;
+}
+
+#add-entry, #edit-entry {
+    align-items: center;
+}
+
+#add-entry select, #edit-entry select {
+    margin-bottom: 10px;
+}
+
+#new-entry-data input:focus, #new-entry-folder input:focus, #edit-entry-folder input:focus {
+   margin: 0 0 2px 0;
+}
+
+#new-entry-pw, #edit-entry-pw {
+    flex-direction: row;
+}
+
+#new-entry-pw input:focus {
+    margin-bottom: 6px;
+}
+
+#add-entry textarea {
+    margin-top: 20px;
+}
+
+#edit-entry label {
+    font-size: small;
+    font-family: monospace;
+    color: grey;
+}
+
+#edit-entry input {
+    margin: 5px 0;
+}
+
+#edit-entry input:focus {
+    margin-top: 1px;
+    margin-bottom: 1px;
+    padding: 8px 4px;
+}
+
+.edit-entry-item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-entry-item input {
+    width: 80%;
+}
+
+#edit-entry-pw input {
+    width: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#edit-entry-note {
+    margin-top: 20px;
+}
+
+#edit-entry-note textarea {
+    width: 100%;
+}
+
+#pw-strength {
+    font-size: small;
+}
+
+#strength {
+    font-weight: 800;
+}
+
+@media screen and (min-width: 480px) {
+    #new-entry-data, #new-entry-folder, #edit-entry-data, #edit-entry-folder {
+        width: 400px;
+    }
+
+    #new-entry-pw input {
+        width: 80%;
+    }
+
+    #edit-entry-pw label {
+        margin-right: 16px;
+    }
+
+    #edit-entry-pw input {
+        width: 60%;
+    }
+}
+
+
+/* ============================================================
+
+Delete
+
+============================================================ */
+
+
+#delete-entry {
+    align-items: center;
+    max-width: 320px;
+}
+
+#delete-entry span {
+    margin: 20px 0;
+    text-align: center;
+}

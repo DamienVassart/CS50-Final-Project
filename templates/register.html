@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <div id="register">
+        <h1>Register</h1>
+        {% if message %}
+            <p class="message">{{ message }}</p>
+        {% endif %}
+        <form id="register-form" action="/register" method="post">
+            <input type="text" autocomplete="off" name="username" placeholder="Username">
+            <input type="password" autocomplete="off" name="password" placeholder="Password">
+            <input type="password" autocomplete="off" name="confirmation" placeholder="Password confirmation">
+            <button type="submit">Register</button>
+        </form>
+    </div>
+{% endblock %}
