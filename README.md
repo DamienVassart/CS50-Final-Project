@@ -4,7 +4,7 @@
 #### Video Demo: [View on Youtube](https://youtu.be/cys8sAto3NE)
 #### Description:
 
-This is my personnal project for [CS50](https://online-learning.harvard.edu/course/cs50-introduction-computer-science?delta=0)<br>
+This is my personnal project for [CS50](https://online-learning.harvard.edu/course/cs50-introduction-computer-science?delta=0).<br>
 This web app allows you to manage your online accounts logins and passwords in a reasonably secure way. It comes with **AES encryption** to protect your sensitive data.
 
 
@@ -50,6 +50,7 @@ You will also need to enable `Javascript` in your web browser.
 
 #### Running
 
+You will eventually have to create a `user_dbs` directory prior to run for the very first time.<br>
 Once all of the above is installed, you can run the app locally by executing the following:
 
 ##### Bash:
