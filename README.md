@@ -4,7 +4,7 @@
 #### Video Demo: [View on Youtube](https://youtu.be/cys8sAto3NE)
 #### Description:
 
-This is my personnal project for [CS50](https://online-learning.harvard.edu/course/cs50-introduction-computer-science?delta=0)
+This is my personnal project for [CS50](https://online-learning.harvard.edu/course/cs50-introduction-computer-science?delta=0)<br>
 This web app allows you to manage your online accounts logins and passwords in a reasonably secure way. It comes with **AES encryption** to protect your sensitive data.
 
 
